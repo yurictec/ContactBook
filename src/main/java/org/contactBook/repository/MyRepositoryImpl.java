@@ -2,7 +2,10 @@ package org.contactBook.repository;
 
 import org.contactBook.entity.Contact;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -10,17 +13,15 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * Created by Yuriy Kolennikov on 12.03.2017.
  */
+@Repository
 public class MyRepositoryImpl implements MyRepository {
 
     private static Set<Contact> contacts;
     private static AtomicInteger integer;
 
-    public MyRepositoryImpl() {
-    }
-
-    public MyRepositoryImpl(Set<Contact> contacts, AtomicInteger integer) {
-        this.contacts = contacts;
-        this.integer = integer;
+    public MyRepositoryImpl(){
+        this.contacts = new HashSet<Contact>(10);
+        this.integer = new AtomicInteger();
     }
 
     public List<Contact> findAll() {
@@ -61,7 +62,8 @@ public class MyRepositoryImpl implements MyRepository {
         contacts.remove(contact);
     }
 
-    public int howManyContacts(){
+    public int howManyContacts() {
         return contacts.size();
     }
+
 }

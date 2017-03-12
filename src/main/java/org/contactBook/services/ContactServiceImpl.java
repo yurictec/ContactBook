@@ -5,8 +5,10 @@ import org.contactBook.repository.MyRepository;
 import org.contactBook.repository.MyRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,10 +16,9 @@ import java.util.List;
 /**
  * Created by Yuriy Kolennikov on 12.03.2017.
  */
-@Repository
+@Service("contactService")
 public class ContactServiceImpl implements ContactService {
 
-    @Autowired
     private MyRepository myRepository;
 
     public List<Contact> findAllContacts() {
@@ -43,5 +44,10 @@ public class ContactServiceImpl implements ContactService {
 
     public int howManyContacts() {
         return myRepository.howManyContacts();
+    }
+
+    @Autowired
+    public void setMyRepository(MyRepository myRepository) {
+        this.myRepository = myRepository;
     }
 }
