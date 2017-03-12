@@ -7,6 +7,7 @@
           <file>file://$MODULE_DIR$/src/main/resources/META-INF/spring/app-config.xml</file>
           <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/spring/root-context.xml</file>
           <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/spring/appServlet/contactBook-servler.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/contactBook-servlet.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -54,5 +55,7 @@
     <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.8.10" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.22" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.slf4j:jcl-over-slf4j:1.7.22" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-log4j12:1.7.24" level="project" />
+    <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
   </component>
 </module>

@@ -1,13 +1,15 @@
 package org.contactBook.controller;
 
 import org.contactBook.entity.Contact;
-import org.contactBook.repository.MyRepository;
+import org.contactBook.exception.MyException;
 import org.contactBook.services.ContactService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
@@ -17,13 +19,26 @@ import java.util.List;
 @Controller
 public class ContactController {
 
+    private final Logger logger = LoggerFactory.getLogger(ContactController.class);
+
     private ContactService contactService;
 
-    @RequestMapping(value = "/contacts", method = RequestMethod.GET)
-    public String list(Model uiModel) {
+    @RequestMapping(value = "/contacts")
+    public String list(Model model) throws MyException{
         List<Contact> list = contactService.findAllContacts();
-        uiModel.addAttribute("contacts", list);
+        model.addAttribute("contacts", list);
         return "list";
+    }
+
+    @ExceptionHandler(MyException.class)
+    public String hendleException(Exception e){
+        logger.error("ERROR CONTROLLER");
+        return "error";
+    }
+
+    @RequestMapping(value = "/*")
+    public void error() throws MyException {
+        throw  new MyException();
     }
 
     @Autowired
