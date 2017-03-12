@@ -1,16 +1,11 @@
 package org.contactBook.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Yuriy Kolennikov on 12.03.2017.
  */
-@Entity
 public class Contact {
 
     private int id;
@@ -21,8 +16,6 @@ public class Contact {
     private List<Address> addresses = new ArrayList<Address>();
     private List<Email> emails = new ArrayList<Email>();
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public int getId() {
         return id;
     }

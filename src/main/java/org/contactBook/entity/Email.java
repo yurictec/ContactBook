@@ -2,16 +2,10 @@ package org.contactBook.entity;
 
 import org.contactBook.entity.enums.TypeEmail;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.awt.image.SampleModel;
 
 /**
  * Created by Yuriy Kolennikov on 12.03.2017.
  */
-@Entity
 public class Email {
 
     private TypeEmail typeEmail;

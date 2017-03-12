@@ -2,15 +2,9 @@ package org.contactBook.entity;
 
 import org.contactBook.entity.enums.TypeAddress;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
 /**
  * Created by Yuriy Kolennikov on 12.03.2017.
  */
-@Entity
 public class Address {
 
     private TypeAddress typeAddress;
